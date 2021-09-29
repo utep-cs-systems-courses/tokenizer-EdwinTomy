@@ -8,7 +8,7 @@ int main()
   printf("Welcome!:\n)");
   List* list = init_history();
   while(1){
-    printf("Select one of the following inputs, please:\n);
+    printf("Select one of the following inputs, please:\n");
     printf("1. Print full history (type <h>)\n");
     printf("2. Get specific node i from history (type <!i>, where i is a n)\n");
     printf("3. Quit program (type <q>)\n");
