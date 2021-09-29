@@ -31,7 +31,7 @@ int main()
     } else{
       puts("Tokenized String:");
       char ** tokens = tokenize(input);
-      add_history(list, userIn);
+      add_history(list, input);
       print_tokens(tokens);
       free_tokens(tokens);
     }
