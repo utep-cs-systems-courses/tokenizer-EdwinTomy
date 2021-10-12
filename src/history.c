@@ -45,7 +45,7 @@ void print_history(List *list)
 {
   puts("Printing History:\n");
 
-  Item* temp = *list->root;
+  Item* temp = list->root;
   while (temp != NULL) {
     printf("History #%d: %s\n", temp->id, temp->str);
     temp = temp->next;
