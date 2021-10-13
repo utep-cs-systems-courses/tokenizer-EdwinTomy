@@ -77,7 +77,7 @@ char **tokenize(char* str)
   
   char *empty = (char *) malloc(sizeof(char));
   empty[0] = '\0';
-  tokens[i] = empty; 
+  tokens[cnt] = empty; 
   return tokens;
 }
 
