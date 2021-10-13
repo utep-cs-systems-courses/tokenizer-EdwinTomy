@@ -108,7 +108,7 @@ char **tokenize(char *str)
 {
   printf("tok\n");
   int cnt = count_words(str);
-  char **tokens = (char **) malloc((num_words + 1) * sizeof(char));
+  char **tokens = (char **) malloc((cnt + 1) * sizeof(char));
  
   for(int i = 0; i < cnt; i++){
       char* str_word = word_start(str);
