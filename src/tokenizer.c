@@ -5,23 +5,23 @@
 
 int space_char(char c)
 {
-  printf("..........");
+  printf("..........\n");
   printf("space with:%c\n",c);
-  printf("..........");
+  printf("..........\n");
   return (c == ' ' || c == '\t');
 }
 
 int non_space_char(char c)
 {
-  printf(".............");
+  printf(".............\n");
   printf("nonspace with:%c\n",c);
-  printf(".............");
+  printf(".............\n");
   return !(space_char(c) || c == '\0');
 }
 
 char *word_start(char *str)
 {
-  printf("---------------");
+  printf("---------------\n");
   printf("start with:%s\n", str);
   while(space_char(*str)){
     printf("entering start while with:%s\n", str);
@@ -33,19 +33,19 @@ char *word_start(char *str)
   if(*str == '\0') {
     printf("is null\n");
     char *p = NULL;
-    printf("---------------");
+    printf("---------------\n");
     return p;
   }
   
   printf("returning %s\n", str);
   printf("\n");
-  printf("---------------");
+  printf("---------------\n");
   return str;
 }
 
 char *word_terminator(char *str)
 {
-  printf("--------------------");
+  printf("--------------------\n");
   printf("term with:%s\n", str);
   
   str = word_start(str);
@@ -54,7 +54,7 @@ char *word_terminator(char *str)
   if(*str == '\0') {
     printf("is null\n");
     char *p = NULL;
-    printf("--------------------");
+    printf("--------------------\n");
     return p;
   }
     
@@ -65,13 +65,13 @@ char *word_terminator(char *str)
   }
 
   printf("returning end:%s\n", str);
-  printf("--------------------");
+  printf("--------------------\n");
   return str;
 }
 
 int count_words(char *str)
 {
-  printf("~~~~~~~~~~~~~~~~~~~~~~~~~");
+  printf("~~~~~~~~~~~~~~~~~~~~~~~~~\n");
   printf("count with:%s\n", str);
   int cnt = 0;
   printf("count start with:%s\n", str);
@@ -84,7 +84,7 @@ int count_words(char *str)
     str = word_start(str);
   }
   
-  printf("~~~~~~~~~~~~~~~~~~~~~~~~~");
+  printf("~~~~~~~~~~~~~~~~~~~~~~~~~\n");
   return cnt;
 }
 
