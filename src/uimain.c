@@ -11,8 +11,8 @@ int main()
   printf(word_start("hol   rotrf"));
   printf(word_terminator("   rotrf"));
   printf(word_terminator("rotrf.  rfjh"));
-  printf("%d\n",5);
-  printf("%d\n",count_words("  cerc erc crc cr c.  "));
+  printf("yf%d\n",5);
+  printf("tyf%d\n",count_words("  cerc erc crc cr c.  "));
   
   printf("Welcome!:\n)");
   List* list = init_history();
