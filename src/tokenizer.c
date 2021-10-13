@@ -75,8 +75,9 @@ char **tokenize(char* str)
     str = word_terminator(str);
   }
   
-  printf("workin\n");
-  tokens[cnt] = '\0'; 
+  char *empty = (char *) malloc(sizeof(char));
+  empty[0] = '\0';
+  tokens[i] = empty; 
   return tokens;
 }
 
