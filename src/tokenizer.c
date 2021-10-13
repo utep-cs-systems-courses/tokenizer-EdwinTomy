@@ -21,6 +21,12 @@ char *word_start(char *str)
   while(space_char(*str)){
     str++;
   }
+  
+  if(*str == '\0') {
+    char *p = NULL;
+    return p;
+  }
+  
   return str;
 }
 
@@ -29,8 +35,9 @@ char *word_terminator(char *str)
   printf("term\n");
   str = word_start(str);
   
-  if(str == 0){
-    return 0;
+  if(*str == '\0') {
+    char *p = NULL;
+    return p;
   }
   
   str++;
@@ -46,17 +53,14 @@ int count_words(char *str)
 {
   printf("count\n");
   int cnt = 0;
+  str = word_start(str);
 
   while(*str != '\0'){
-    str = word_start(str);
-
-    if(*str == '\0')
-      break;
-    
     cnt++;
-
     str = word_terminator(str);
+    str = word_start(str);
   }
+  
   return cnt;
 }
 
