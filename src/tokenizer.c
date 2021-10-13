@@ -5,16 +5,19 @@
 
 int space_char(char c)
 {
+  printf("space\n");
   return (c == ' ' || c == '\t');
 }
 
 int non_space_char(char c)
 {
+  printf("nonspace\n");
   return !(space_char(c) || c == '\0');
 }
 
 char *word_start(char *str)
 {
+  printf("start\n");
   while(space_char(*str)){
     str++;
   }
@@ -23,6 +26,7 @@ char *word_start(char *str)
 
 char *word_terminator(char *str)
 {
+  printf("term\n");
   str = word_start(str);
     
   while(space_char(*str)){
@@ -34,6 +38,7 @@ char *word_terminator(char *str)
 
 int count_words(char *str)
 {
+  printf("count\n");
   int cnt = 0;
 
   while(1){
@@ -51,6 +56,7 @@ int count_words(char *str)
 
 char *copy_str(char *str, short len)
 {
+  printf("copy\n");
   char *copy = malloc(len);
   
   int i;
@@ -63,6 +69,7 @@ char *copy_str(char *str, short len)
 
 char **tokenize(char *str)
 {
+  printf("tok\n");
   int cnt = count_words(str);
   char **tokens = malloc((cnt + 1) * sizeof(char *));
  
