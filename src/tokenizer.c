@@ -47,7 +47,7 @@ int count_words(char *str)
   printf("count\n");
   int cnt = 0;
 
-  while(1){
+  while(*str != '\0'){
     str = word_start(str);
 
     if(*str == '\0')
