@@ -72,6 +72,7 @@ char **tokenize(char* str)
   for(int i = 0; i < cnt; i++) {
     str = word_start(str);
     tokens[i] = copy_str(str, word_terminator(str) - str);
+    printf("str:%s, tok:%s/n", str, tokens[i]);
     str = word_terminator(str);
   }
   
