@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "history.h"
+#include "tokenizer.h"
 
 List* init_history() {
   List* newList = (List*)malloc(sizeof(List));
@@ -13,26 +14,24 @@ void add_history(List* list, char*str) {
   if(list->root == NULL) {
     list->root = (Item*)malloc(sizeof(Item));
     list->root->id = 0;
-    list->root->str = str;
+    list->root->str = copy_str(str);
     list->root->next = NULL;
     return;
   }
   
-  int count = 1;
-  Item* currItem = list->root;
+  int cnt = 1;
+  Item* temp = list->root;
     
-  while(currItem->next != NULL) {
-    currItem = currItem->next;
-    ++count;
+  while(temp->next != NULL) {
+    temp = temp->next;
+    ++cnt;
   }
 
-  //allocate memory for this new node
-  currItem->next = (Item*)malloc(sizeof(Item));
-  currItem = currItem->next;
-  //initialize attributes
-  currItem->id = count;
-  currItem->str = str;
-  currItem->next = NULL; 
+  temp->next = (Item*)malloc(sizeof(Item));
+  temp = temp->next;
+  temp->id = cnt;
+  temp->str = copy_str(str);
+  temp->next = NULL; 
 }
 
 char* get_history(List* list, int id) {
@@ -40,13 +39,13 @@ char* get_history(List* list, int id) {
     return "";
   }
   
-  Item* currItem = list->root;
+  Item* temp = list->root;
   
-  while(currItem != NULL) {
-    if(currItem->id == id) {
-      return currItem->str;
+  while(temp != NULL) {
+    if(temp->id == id) {
+      return temp->str;
     }
-    currItem = currItem->next;
+    temp = temp->next;
   }
   printf("Id not found\n");
   return "";
@@ -54,11 +53,11 @@ char* get_history(List* list, int id) {
 
 void print_history(List* list) {
   Item* currItem = list->root;
-  int count = 0;
+  int cnt = 0;
   
-  while(currItem != 0) {
-    printf("Id# %d: %s\n", currItem->id, currItem->str);
-    currItem = currItem->next;
+  while(temp != 0) {
+    printf("Id# %d: %s\n", temp->id, temp->str);
+    temp = temp->next;
   }
 }
 
