@@ -1,81 +1,79 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include  "history.h"
-#include "tokenizer.h"
+#include <stdlib.h>
+#include "history.h"
 
-/* Initialize the linked list to keep the history */
-List* init_history()
-{
-  struct s_List *list = (struct s_List *) malloc(sizeof(struct s_List));
-  return list;
+List* init_history() {
+  List* newList = (List*)malloc(sizeof(List));
+  newList->root = NULL;
+  return newList;
 }
 
-/* Add a history item to the end of the list.
-   List* list - the linked list
-   char* str - the string to store
-*/
-void add_history(List *list, char *str)
-{
-  struct s_Item *item = (struct s_Item *) malloc(sizeof(struct s_Item));
-
-  char *char_temp = str;
-  while (*char_temp != '\0') {
-    char_temp++;
+void add_history(List* list, char*str) {
+  //list is empty
+  if(list->root == NULL) {
+    list->root = (Item*)malloc(sizeof(Item));
+    list->root->id = 0;
+    list->root->str = str;
+    list->root->next = NULL;
+    return;
   }
-  int len = char_temp - str;
-  char *new_str = copy_str(str, len);
-
-  item->str = new_str;
-  struct s_Item *temp = list->root;
-  if (temp == NULL) {
-    item->id = 1;
-    list->root = item;
-  }
-  else {
-    while (temp->next != NULL) {
-      temp = temp->next;
-    }
-    item->id = temp->id + 1;
-    temp->next = item;
-  }
-}
-
-/* Retrieve the string stored in the node where Item->id == id
-   List* list - the linked list
-   int id - the id of the Item to find */
-char *get_history(List *list, int id)
-{
-  struct s_Item *temp = list->root;
+  
   int count = 1;
-  while (temp) {
-    if (count == id) {
-      return temp->str;
+  Item* currItem = list->root;
+    
+  while(currItem->next != NULL) {
+    currItem = currItem->next;
+    ++count;
+  }
+
+  //allocate memory for this new node
+  currItem->next = (Item*)malloc(sizeof(Item));
+  currItem = currItem->next;
+  //initialize attributes
+  currItem->id = count;
+  currItem->str = str;
+  currItem->next = NULL; 
+}
+
+char* get_history(List* list, int id) {
+  if (id < 0) {
+    return "";
+  }
+  
+  Item* currItem = list->root;
+  
+  while(currItem != NULL) {
+    if(currItem->id == id) {
+      return currItem->str;
     }
-    temp = temp->next;
-    count++;
+    currItem = currItem->next;
   }
-  return "Index out of bounds, try again!";
+  printf("Id not found\n");
+  return "";
 }
 
-/* Print the entire contents of the list */
-void print_history(List *list)
-{
-  struct s_Item *temp = list->root;
-  while (temp) {
-    printf("H[%d]: %s\n", temp->id, temp->str);
-    temp = temp->next;
+void print_history(List* list) {
+  Item* currItem = list->root;
+  int count = 0;
+  
+  while(currItem != 0) {
+    printf("Id# %d: %s\n", currItem->id, currItem->str);
+    currItem = currItem->next;
   }
 }
 
-/* Free the history list and the strings it references */
-void free_history(List *list)
-{
-  struct s_Item *temp = list->root;
-  struct s_Item *temp_next;
-  while (temp) {
-    temp_next = temp->next;
-    free(temp);
-    temp = temp_next;
+void free_items(Item* item) {
+  if(item->next != 0) {
+    free_items(item->next);
+  }
+  printf("Freeing item: %s on address %x\n", item->str, item);
+  free(item);
+  printf("\n\n");
+}
+
+void free_history(List* list) {
+  if(list->root != 0) {
+    free_items(list->root);
   }
   free(list);
 }
