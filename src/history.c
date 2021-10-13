@@ -14,7 +14,7 @@ void add_history(List* list, char*str) {
   if(list->root == NULL) {
     list->root = (Item*)malloc(sizeof(Item));
     list->root->id = 0;
-    list->root->str = copy_str(str);
+    list->root->str = copy_str(str, word_start(str) - word_terminator(word_start(str)));
     list->root->next = NULL;
     return;
   }
@@ -30,7 +30,7 @@ void add_history(List* list, char*str) {
   temp->next = (Item*)malloc(sizeof(Item));
   temp = temp->next;
   temp->id = cnt;
-  temp->str = copy_str(str);
+  temp->str = copy_str(str, word_start(str) - word_terminator(word_start(str)));
   temp->next = NULL; 
 }
 
