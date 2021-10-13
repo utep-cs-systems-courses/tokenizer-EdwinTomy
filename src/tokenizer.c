@@ -7,7 +7,7 @@ int space_char(char c)
 {
   printf("space\n");
   printf("%c\n",c);
-  printf("\n);
+  printf("\n");
   return (c == ' ' || c == '\t');
 }
 
@@ -15,7 +15,7 @@ int non_space_char(char c)
 {
   printf("nonspace\n");
   printf("%c\n",c);
-  printf("\n);
+  printf("\n");
   return !(space_char(c) || c == '\0');
 }
 
