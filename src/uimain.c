@@ -5,45 +5,39 @@
 
 int main()
 {
+  char user_input[1000];
+  List *list = init_history();
+  int bool = 1; 
   
-  printf(word_start("   rotrf"));
-  printf(word_start(word_start("   rotrf nene")));
-  printf(word_start("hol   rotrf"));
-  printf(word_terminator("   rotrf"));
-  printf(word_terminator("rotrf.  rfjh"));
-  printf("yf%d\n",5);
-  printf("tyf%d\n",count_words("  cerc erc crc cr c.  "));
+  puts("Welcome to Tokenizer!\n");
   
-  printf("Welcome!:\n)");
-  List* list = init_history();
-  while(1){
-    printf("Select one of the following inputs, please:\n");
-    printf("1. Print full history (type <h>)\n");
-    printf("2. Get specific node i from history (type <!i>, where i is a n)\n");
-    printf("3. Quit program (type <q>)\n");
-    printf("4. Tokenize! (type anything else)\n");
-          
-    char *input = malloc(sizeof(char*));
-    fgets(input, 100, stdin);
-
-    if(input[0] == 'h'){
+  while (bool) {
+    puts("Input a string to tokenize it,  !<n> to obtain nth node, !h for history, !q to quit:\n");
+    printf("->");
+    fgets(user_input,1000, stdin);
+    
+    if (user_input[0] == '!' && user_input[1] == 'h') {
       print_history(list);
-
-    } else if(input[0] == '!'){
-      int x = input[1] - '0';
-      printf("Node at id[%d]:  %s\n", x, get_history(list, x));
-
-    } else if(input[0] == 'q'){
-      puts("Goobdbye! :(");
-      break;
-      
-    } else{
-      puts("Tokenized String:");
-      char** tokens = tokenize(input);
-      add_history(list, input);
+    }
+    
+    else if (user_input[0] == '!' && user_input[1] == 'q') {
+      bool = 0;
+      printf("Bye! >:(\n");
+    }
+    
+    else if (user_input[0] == '!') {
+      char *history_val = get_history(list, user_input[1] - '0');
+      printf("Node[%d] is:%s\n", user_input[1] - '0', history_val);
+    }
+    
+    else {
+      char **tokens = tokenize(user_input);
+      printf("%s\n", tokens[0]);
       print_tokens(tokens);
-      free_tokens(tokens);
+      add_history(list, user_input);
     }
   }
+  
+  free_history(list);
   return 0;
 }
