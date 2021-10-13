@@ -16,6 +16,7 @@ int non_space_char(char c)
 
 char *word_start(char *str)
 {
+  printf("holaaa");
   while(space_char(*str++));
 
   if(*str == '\0') {
