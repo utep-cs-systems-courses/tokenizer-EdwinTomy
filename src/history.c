@@ -52,7 +52,7 @@ char* get_history(List* list, int id) {
 }
 
 void print_history(List* list) {
-  Item* currItem = list->root;
+  Item* temp = list->root;
   int cnt = 0;
   
   while(temp != 0) {
