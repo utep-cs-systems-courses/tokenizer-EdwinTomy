@@ -6,7 +6,7 @@
 int main()
 {
   
-  printf(count_words("fcfc vchjgt tvjh tjhkv "));
+  printf(word_start("   rotrf"));
   printf("Welcome!:\n)");
   List* list = init_history();
   while(1){
