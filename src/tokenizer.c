@@ -63,7 +63,7 @@ int count_words(char *str)
 char *copy_str(char *str, short len)
 {
   printf("copy\n");
-  char *copy = malloc(len);
+  char *copy = malloc(len+1);
   
   int i;
   for(int i = 0; i < len; i++)
