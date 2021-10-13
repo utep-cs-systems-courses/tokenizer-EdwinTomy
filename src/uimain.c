@@ -7,6 +7,11 @@ int main()
 {
   
   printf(word_start("   rotrf"));
+  printf(word_start(word_start("   rotrf nene")));
+  printf(word_start("hol   rotrf"));
+  printf(word_terminator("   rotrf"));
+  printf(word_terminator("rotrf.  rfjh"));
+  
   printf("Welcome!:\n)");
   List* list = init_history();
   while(1){
