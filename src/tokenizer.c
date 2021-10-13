@@ -77,7 +77,7 @@ int count_words(char *str)
   printf("count start with:%s\n", str);
   str = word_start(str);
 
-  while(str){
+  while(str != NULL){
     printf("count while:%s\n", str);
     cnt++;
     str = word_terminator(str);
