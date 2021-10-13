@@ -6,46 +6,65 @@
 int space_char(char c)
 {
   printf("space\n");
+  printf("%c\n",c);
+  printf("\n);
   return (c == ' ' || c == '\t');
 }
 
 int non_space_char(char c)
 {
   printf("nonspace\n");
+  printf("%c\n",c);
+  printf("\n);
   return !(space_char(c) || c == '\0');
 }
 
 char *word_start(char *str)
 {
   printf("start\n");
+  printf(str);
+  printf("\n");
   while(space_char(*str)){
     str++;
+    printf(str);
+    printf("\n");
   }
   
   if(*str == '\0') {
+    printf("is null\n");
+    printf("\n");
     char *p = NULL;
     return p;
   }
   
+  printf("returning %s\n", str);
+  printf("\n");
   return str;
 }
 
 char *word_terminator(char *str)
 {
   printf("term\n");
-  str = word_start(str);
+  printf(str);
+  printf("\n");
   
+  str = word_start(str);
+ 
   if(*str == '\0') {
+    printf("is null\n");
+    printf("\n");
     char *p = NULL;
     return p;
   }
-  
-  str++;
     
   while(non_space_char(*str)){
     str++;
+    printf(str);
+    printf("\n");
   }
 
+  printf("returning %s\n", str);
+  printf("\n");
   return str;
 }
 
