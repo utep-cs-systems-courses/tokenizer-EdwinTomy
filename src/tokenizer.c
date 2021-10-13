@@ -56,6 +56,10 @@ int count_words(char *str)
   str = word_start(str);
 
   while(*str != '\0'){
+    printf("/n");
+    printf(str);
+    printf("/n");
+    printf("/n");
     cnt++;
     str = word_terminator(str);
     str = word_start(str);
