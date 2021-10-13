@@ -28,8 +28,14 @@ char *word_terminator(char *str)
 {
   printf("term\n");
   str = word_start(str);
+  
+  if(str == 0){
+    return 0;
+  }
+  
+  str++;
     
-  while(space_char(*str)){
+  while(non_space_char(*str)){
     str++;
   }
 
