@@ -86,6 +86,7 @@ int count_words(char *str)
     str = word_start(str);
   }
   
+  printf("returnin cnt:%d"\n, cnt);
   printf("~~~~~~~~~~~~~~~~~~~~~~~~~\n");
   return cnt;
 }
