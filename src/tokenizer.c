@@ -78,7 +78,7 @@ int count_words(char *str)
 char *copy_str(char *inStr, short len)
 {
   printf("~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-  printf("Copy with:%s;and len:%d\n", str, len);
+  printf("Copy with:%s;and len:%d\n", inStr, len);
   char *copy = (char *) malloc((len + 1) * sizeof(char));
    
   int i;
@@ -103,7 +103,7 @@ char **tokenize(char* str)
   for(int i = 0; i < cnt; i++) {
     str = word_start(str);
     tokens[i] = copy_str(str, word_terminator(str) - str);
-    printf("Print token %s\n", token[i]);
+    printf("Print token %s\n", tokens[i]);
     str = word_terminator(str);
   }
   
