@@ -19,7 +19,7 @@ char *word_start(char *str)
   printf("---------------\n");
   printf("Start ended with:%s\n", str);
 
-  if(*str == '\0') {
+  if(str == NULL || *str == '\0') {
     char *p = NULL;
     printf("Start ended with:%s\n", str);
     printf("---------------\n");
@@ -41,7 +41,7 @@ char *word_terminator(char *str)
   printf("Terminator:%s\n", str);
   str = word_start(str);
  
-  if(*str == '\0') {
+  if(str == NULL || *str == '\0') {
     printf("is null\n");
     char *p = NULL;
     printf("Terminator ended with:%s\n", p);
