@@ -25,7 +25,7 @@ char *word_start(char *str)
     printf("Start ended with:%s\n", str);
     printf("---------------\n");
     return p;
-  }*/
+  }
   
   while(space_char(*str)){
     str++;
