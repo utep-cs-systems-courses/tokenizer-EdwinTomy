@@ -17,7 +17,15 @@ void add_history(List* list, char*str) {
     printf("Inside add root\n");
     list->root->id = 0;
     printf("Inside add id\n");
-    list->root->str = copy_str(str, word_start(str) - word_terminator(word_start(str)));
+    printf("String:%s\n", str);
+    char* start = word_start(str);
+    printf("String start:%s\n", start);
+    char* end = word_terminator(word_start(str));
+    printf("String end:%s\n", end);
+    printf("String len:%d\n", (end-start));
+
+   
+    list->root->str = copy_str(str, word_terminator(word_start(str)) - word_start(str));
     printf("Inside add str\n");
     list->root->next = NULL;
     printf("Inside add next\n");
