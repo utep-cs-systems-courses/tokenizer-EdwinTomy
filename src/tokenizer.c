@@ -66,6 +66,7 @@ char **tokenize(char* str)
 {
   int cnt = count_words(str);
   char **tokens = (char **) malloc((cnt + 1) * sizeof(char*));
+  printf("cnt is %d\n", cnt);
 
   int i;
   for(i = 0; i < cnt; i++) {
