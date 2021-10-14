@@ -27,7 +27,7 @@ int main()
     }
     else {
       char **tokens = tokenize(user_input);
-      printf("%s\n", tokens[0]);
+      printf("%s\n", tokens[2]);
       print_tokens(tokens);
       add_history(list, user_input);
     }
