@@ -11,6 +11,7 @@ List* init_history() {
 
 void add_history(List* list, char*str) {
   //list is empty
+  printf("Inside add\n");
   if(list->root == NULL) {
     list->root = (Item*)malloc(sizeof(Item));
     list->root->id = 0;
@@ -19,14 +20,17 @@ void add_history(List* list, char*str) {
     return;
   }
   
+  printf("After null\n");
   int cnt = 1;
   Item* temp = list->root;
     
+  printf("Before while\n");
   while(temp->next != NULL) {
     temp = temp->next;
     ++cnt;
   }
 
+  printf("After while\n");
   temp->next = (Item*)malloc(sizeof(Item));
   temp = temp->next;
   temp->id = cnt;
