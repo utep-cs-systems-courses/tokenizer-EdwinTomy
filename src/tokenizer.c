@@ -83,13 +83,15 @@ void print_tokens(char **tokens)
   printf("Tokens:\n");
   int cnt = 0;
    
-  printf(tokens[3]);
+  printf("3rd:%s/n",tokens[3]);
   while (tokens[cnt] != 0) {
     printf(tokens[cnt]);
     printf("Token[%d]:%s\n", cnt+1, tokens[cnt]);
     printf(tokens[cnt]);
     
+    printf("3rd:%d/n",cnt);
     cnt++;
+    printf("3rd:%d/n",cnt);
   }
   printf("th end");
   
