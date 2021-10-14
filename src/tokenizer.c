@@ -30,6 +30,13 @@ char *word_start(char *str)
   while(space_char(*str)){
     str++;
   }
+  
+  if(str == NULL || *str == '\0') {
+    char *p = NULL;
+    printf("Start ended (null) with:%s\n", str);
+    printf("---------------\n");
+    return p;
+  }
 
   printf("Start ended with:%s\n", str);
   printf("---------------\n");
