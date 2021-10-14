@@ -5,6 +5,8 @@
 
 int main()
 {
+  word_start(NULL);
+  word_terminator(NULL);
   char user_input[100];
   struct s_List *list = init_history();
   int cont = 1; 
