@@ -90,9 +90,6 @@ void print_tokens(char **tokens)
     printf("Token[%d]:%s\n", cnt+1, tokens[cnt]);
     printf(tokens[cnt]);
     
-    if(*tokens[cnt] != '\0'){
-      printf("will pass");
-    }
     cnt++;
   }
   
