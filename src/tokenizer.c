@@ -16,22 +16,49 @@ int non_space_char(char c)
 
 char *word_start(char *str)
 {
-  while(space_char(*str++));
-
+     printf("entering start while with:%s\n", str);
+    str++;
+    printf("after add:%s\n", str);
+  }
+  printf("exittin start while:%s\n", str);
+  
   if(*str == '\0') {
+    printf("is null\n");
     char *p = NULL;
+    printf("---------------\n");
     return p;
   }
-   
-  str--;
+  
+  printf("returning %s\n", str);
+  printf("\n");
+  printf("---------------\n");
   return str;
 }
 
-char *word_terminator(char *word)
+char *word_terminator(char *str)
 {
-  while(non_space_char(*word++));
-  word--;
-  return word;
+  printf("--------------------\n");
+  printf("term with:%s\n", str);
+  
+  str = word_start(str);
+  printf("term after start with:%s\n", str);
+ 
+  if(*str == '\0') {
+    printf("is null\n");
+    char *p = NULL;
+    printf("--------------------\n");
+    return p;
+  }
+  
+  while(non_space_char(*str)){
+    printf("entering end while with:%s\n", str);
+    str++;
+    printf("after add:%s\n", str);
+  }
+
+  printf("returning end:%s\n", str);
+  printf("--------------------\n");
+  return str;
 }
 
 int count_words(char *str)
