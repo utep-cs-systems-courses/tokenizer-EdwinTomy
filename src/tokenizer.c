@@ -17,12 +17,12 @@ int non_space_char(char c)
 char *word_start(char *str)
 {
   printf("---------------\n");
-  printf("Start ended with:%s\n", str);
+  printf("Start started with:%s\n", str);
 
   
   if(str == NULL || *str == '\0') {
     char *p = NULL;
-    printf("Start ended with:%s\n", str);
+    printf("Start ended (null) with:%s\n", str);
     printf("---------------\n");
     return p;
   }
