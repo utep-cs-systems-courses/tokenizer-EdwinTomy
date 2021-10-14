@@ -86,9 +86,9 @@ void print_tokens(char **tokens)
   int cnt = 0;
    
   while (*tokens[cnt] != '\0') {
-    printf(*tokens[cnt]);
+    printf(tokens[cnt]);
     printf("Token[%d]:%s\n", cnt+1, tokens[cnt]);
-    printf(*tokens[cnt]);
+    printf(tokens[cnt]);
     cnt++;
   }
   
