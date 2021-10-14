@@ -68,8 +68,7 @@ char **tokenize(char* str)
   char **tokens = (char **) malloc((cnt + 1) * sizeof(char*));
   printf("cnt is %d\n", cnt);
 
-  int i;
-  for(i = 0; i < cnt; i++) {
+  for(int i = 0; i < cnt; i++) {
     str = word_start(str);
     tokens[i] = copy_str(str, word_terminator(str) - str);
     str = word_terminator(str);
@@ -77,7 +76,7 @@ char **tokenize(char* str)
   
   char *empty = (char *) malloc(sizeof(char));
   empty[0] = '\0';
-  tokens[i] = empty; 
+  tokens[cnt] = empty; 
   return tokens;
 }
 
@@ -86,7 +85,7 @@ void print_tokens(char **tokens)
   printf("Tokens:\n");
   int cnt = 0;
    
-  while (*tokens[cnt] != '\0') {
+  while (tokens[cnt][0] != '\0') {
     printf(tokens[cnt]);
     printf("Token[%d]:%s\n", cnt+1, tokens[cnt]);
     printf(tokens[cnt]);
