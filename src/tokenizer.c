@@ -90,6 +90,7 @@ void print_tokens(char **tokens)
     
     cnt++;
   }
+  printf("th end");
   
 }
 
