@@ -74,9 +74,7 @@ char **tokenize(char* str)
     str = word_terminator(str);
   }
   
-  char *empty = (char *) malloc(sizeof(char));
-  empty[0] = '\0';
-  tokens[cnt] = empty; 
+  tokens[cnt] = 0; 
   return tokens;
 }
 
@@ -85,7 +83,7 @@ void print_tokens(char **tokens)
   printf("Tokens:\n");
   int cnt = 0;
    
-  while (tokens[cnt][0] != '\0') {
+  while (tokens[cnt] != 0) {
     printf(tokens[cnt]);
     printf("Token[%d]:%s\n", cnt+1, tokens[cnt]);
     printf(tokens[cnt]);
