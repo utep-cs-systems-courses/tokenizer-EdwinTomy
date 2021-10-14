@@ -65,7 +65,7 @@ char *copy_str(char *inStr, short len)
 char **tokenize(char* str)
 {
   int cnt = count_words(str);
-  char **tokens = (char **) malloc((cnt + 1) * sizeof(char));
+  char **tokens = (char **) malloc((cnt + 1) * sizeof(char*));
 
   int i;
   for(i = 0; i < cnt; i++) {
