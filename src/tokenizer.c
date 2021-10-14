@@ -29,27 +29,18 @@ char *word_start(char *str)
 
 char *word_terminator(char *str)
 {
-  printf("--------------------\n");
-  printf("term with:%s\n", str);
-  
   str = word_start(str);
-  printf("term after start with:%s\n", str);
  
   if(*str == '\0') {
     printf("is null\n");
     char *p = NULL;
-    printf("--------------------\n");
     return p;
   }
   
   while(non_space_char(*str)){
-    printf("entering end while with:%s\n", str);
     str++;
-    printf("after add:%s\n", str);
   }
 
-  printf("returning end:%s\n", str);
-  printf("--------------------\n");
   return str;
 }
 
