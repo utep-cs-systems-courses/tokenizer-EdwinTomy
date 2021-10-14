@@ -16,18 +16,19 @@ int non_space_char(char c)
 
 char *word_start(char *str)
 {
-     printf("entering start while with:%s\n", str);
-    str++;
-    printf("after add:%s\n", str);
-  }
-  printf("exittin start while:%s\n", str);
-  
   if(*str == '\0') {
     printf("is null\n");
     char *p = NULL;
     printf("---------------\n");
     return p;
   }
+  
+  while(space_char(*str)){
+    printf("entering start while with:%s\n", str);
+    str++;
+    printf("after add:%s\n", str);
+  }
+  printf("exittin start while:%s\n", str);
   
   printf("returning %s\n", str);
   printf("\n");
