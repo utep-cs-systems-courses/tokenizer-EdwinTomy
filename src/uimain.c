@@ -11,10 +11,11 @@ int main()
   puts("Welcome! :) \n");
   
   while (if_continue) {
-    puts("Input !<num> to access string at index num,\n");
-    puts("or input !h for full history of strings,\n");
-    puts("or input !q to quit tokenizer,\n");
-    puts("or input any other string to tokenize it:\n");
+    puts("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    puts("Input !<num> to access string at index num,");
+    puts("or input !h for full history of strings,");
+    puts("or input !q to quit tokenizer,");
+    puts("or input any other string to tokenize it:");
     printf("-->");
     fgets(user_input,100, stdin);
     
@@ -37,6 +38,7 @@ int main()
       print_tokens(tokens);
       add_history(list, user_input);
     }
+     puts("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
   }
   
   free_history(list);
