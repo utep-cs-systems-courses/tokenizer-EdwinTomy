@@ -11,16 +11,16 @@ List* init_history() {
 
 void add_history(List* list, char*str) {
   //list is empty
+  
   printf("Inside add\n");
+  char *temp = str;
+  while (*temp != '\0') {
+    temp++;
+  }
+  int len = temp - str;
+  char *new_str = copy_str(str, len);
+  
   if(list->root == NULL) {
-    char *temp = str;
-    while (*temp != '\0') {
-      temp++;
-    }
-    int len = temp - str;
-    char *new_str = copy_str(str, len);
-
-    
     list->root = (Item*)malloc(sizeof(Item));
     printf("Inside add root\n");
     list->root->id = 0;
@@ -54,7 +54,7 @@ void add_history(List* list, char*str) {
   temp->next = (Item*)malloc(sizeof(Item));
   temp = temp->next;
   temp->id = cnt;
-  temp->str = copy_str(str, word_terminator(word_start(str)) -  word_start(str));
+  temp->str = new_str;
   temp->next = NULL; 
 }
 
