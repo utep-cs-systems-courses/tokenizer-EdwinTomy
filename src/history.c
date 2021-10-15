@@ -13,11 +13,11 @@ void add_history(List* list, char*str) {
   //list is empty
   
   printf("Inside add\n");
-  char *temp = str;
-  while (*temp != '\0') {
-    temp++;
+  char *p = str;
+  while (*p != '\0') {
+    p++;
   }
-  int len = temp - str;
+  int len = p - str;
   char *new_str = copy_str(str, len);
   
   if(list->root == NULL) {
