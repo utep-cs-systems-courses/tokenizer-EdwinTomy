@@ -71,7 +71,7 @@ char* get_history(List* list, int id) {
     }
     temp = temp->next;
   }
-  printf("Id not found\n");
+  printf("No string at inputted id!\n");
   return "";
 }
 
@@ -80,7 +80,7 @@ void print_history(List* list) {
   int cnt = 0;
   
   while(temp != 0) {
-    printf("Id# %d: %s\n", temp->id, temp->str);
+    printf("String with id#%d :%s\n", temp->id, temp->str);
     temp = temp->next;
   }
 }
@@ -91,7 +91,6 @@ void free_items(Item* item) {
   }
   printf("Freeing item: %s on address %x\n", item->str, item);
   free(item);
-  printf("\n\n");
 }
 
 void free_history(List* list) {
