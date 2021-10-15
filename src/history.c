@@ -65,7 +65,7 @@ void print_history(List* list) {
   int cnt = 0;
   
   while(temp != 0) {
-    printf("String with id#%d :%s\n", temp->id, temp->str);
+    printf("String with id#%d:%s\n", temp->id, temp->str);
     temp = temp->next;
   }
 }
