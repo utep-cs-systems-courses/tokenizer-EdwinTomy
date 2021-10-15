@@ -10,9 +10,7 @@ List* init_history() {
 }
 
 void add_history(List* list, char*str) {
-  //list is empty
   
-  printf("Inside add\n");
   char *p = str;
   while (*p != '\0') {
     p++;
@@ -22,35 +20,22 @@ void add_history(List* list, char*str) {
   
   if(list->root == NULL) {
     list->root = (Item*)malloc(sizeof(Item));
-    printf("Inside add root\n");
     list->root->id = 0;
-    printf("Inside add id\n");
-    printf("String:%s\n", str);
     char* start = word_start(str);
-    printf("String start:%s\n", start);
     char* end = word_terminator(word_start(str));
-    printf("String end:%s\n", end);
-    printf("String len:%d\n", (end-start));
-
-   
     list->root->str = new_str;
-    printf("Inside add str\n");
     list->root->next = NULL;
-    printf("Inside add next\n");
     return;
   }
   
-  printf("After null\n");
   int cnt = 1;
   Item* temp = list->root;
-    
-  printf("Before while\n");
+
   while(temp->next != NULL) {
     temp = temp->next;
     ++cnt;
   }
 
-  printf("After while\n");
   temp->next = (Item*)malloc(sizeof(Item));
   temp = temp->next;
   temp->id = cnt;
